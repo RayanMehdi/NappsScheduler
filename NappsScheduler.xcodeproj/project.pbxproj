@@ -132,9 +132,7 @@
 				73E6C21620BEB2FE00EE7BF5 /* Storyboards */,
 				73E6C1E520BEB0B100EE7BF5 /* AppDelegate.swift */,
 				73E6C1E720BEB0B100EE7BF5 /* ViewController.swift */,
-				73E6C1E920BEB0B100EE7BF5 /* Main.storyboard */,
 				73E6C1EF20BEB0CC00EE7BF5 /* Assets.xcassets */,
-				73E6C1F120BEB0CC00EE7BF5 /* LaunchScreen.storyboard */,
 				73E6C1F420BEB0CC00EE7BF5 /* Info.plist */,
 				73E6C1EC20BEB0B100EE7BF5 /* NappsScheduler.xcdatamodeld */,
 			);
@@ -162,6 +160,8 @@
 		73E6C21620BEB2FE00EE7BF5 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				73E6C1F120BEB0CC00EE7BF5 /* LaunchScreen.storyboard */,
+				73E6C1E920BEB0B100EE7BF5 /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
