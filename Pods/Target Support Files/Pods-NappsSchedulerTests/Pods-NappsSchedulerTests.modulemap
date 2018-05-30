@@ -1,0 +1,6 @@
+framework module Pods_NappsSchedulerTests {
+  umbrella header "Pods-NappsSchedulerTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

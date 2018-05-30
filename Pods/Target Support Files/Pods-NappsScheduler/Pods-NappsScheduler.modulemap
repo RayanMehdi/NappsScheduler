@@ -1,0 +1,6 @@
+framework module Pods_NappsScheduler {
+  umbrella header "Pods-NappsScheduler-umbrella.h"
+
+  export *
+  module * { export * }
+}
