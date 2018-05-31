@@ -16,6 +16,8 @@
 		73E6C1F320BEB0CC00EE7BF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73E6C1F120BEB0CC00EE7BF5 /* LaunchScreen.storyboard */; };
 		73E6C1FE20BEB0CC00EE7BF5 /* NappsSchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E6C1FD20BEB0CC00EE7BF5 /* NappsSchedulerTests.swift */; };
 		73E6C20920BEB0CC00EE7BF5 /* NappsSchedulerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E6C20820BEB0CC00EE7BF5 /* NappsSchedulerUITests.swift */; };
+		73E6C21B20BED7C200EE7BF5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E6C21A20BED7C200EE7BF5 /* User.swift */; };
+		73E6C21D20BEDCF400EE7BF5 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E6C21C20BEDCF400EE7BF5 /* Task.swift */; };
 		A047DAA3B54D09FBD1F066D9 /* Pods_NappsSchedulerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67AAC2A6C3D4FB7D911089D4 /* Pods_NappsSchedulerUITests.framework */; };
 		AEE5CAAE3B4D3E0D4394E53A /* Pods_NappsSchedulerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0FDAC6FE9BF586A6D792018 /* Pods_NappsSchedulerTests.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +60,8 @@
 		73E6C20420BEB0CC00EE7BF5 /* NappsSchedulerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NappsSchedulerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73E6C20820BEB0CC00EE7BF5 /* NappsSchedulerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NappsSchedulerUITests.swift; sourceTree = "<group>"; };
 		73E6C20A20BEB0CC00EE7BF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73E6C21A20BED7C200EE7BF5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		73E6C21C20BEDCF400EE7BF5 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		B6F267E3CCC677D6F7033C95 /* Pods-NappsSchedulerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NappsSchedulerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NappsSchedulerTests/Pods-NappsSchedulerTests.release.xcconfig"; sourceTree = "<group>"; };
 		C0FDAC6FE9BF586A6D792018 /* Pods_NappsSchedulerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NappsSchedulerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB291659DD767540B1C8278C /* Pods-NappsScheduler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NappsScheduler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NappsScheduler/Pods-NappsScheduler.debug.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +187,8 @@
 		73E6C21920BEB31700EE7BF5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				73E6C21A20BED7C200EE7BF5 /* User.swift */,
+				73E6C21C20BEDCF400EE7BF5 /* Task.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -444,7 +450,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73E6C21B20BED7C200EE7BF5 /* User.swift in Sources */,
 				73E6C1E820BEB0B100EE7BF5 /* ViewController.swift in Sources */,
+				73E6C21D20BEDCF400EE7BF5 /* Task.swift in Sources */,
 				73E6C1EE20BEB0B100EE7BF5 /* NappsScheduler.xcdatamodeld in Sources */,
 				73E6C1E620BEB0B100EE7BF5 /* AppDelegate.swift in Sources */,
 			);
