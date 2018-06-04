@@ -291,6 +291,9 @@
                                                         <!--2018-05-31 11:50:12 +0000-->
                                                     </date>
                                                     <locale key="locale" localeIdentifier="fr"/>
+                                                    <connections>
+                                                        <action selector="datePickerChanged:" destination="T1F-r0-IvN" eventType="valueChanged" id="WsN-lD-lWq"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -342,9 +345,24 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Ajout d'une tâche" id="iuc-7M-L9L">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="i1F-El-75c"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="yZP-7Q-Arw"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="i1F-El-75c">
+                            <connections>
+                                <action selector="cancel:" destination="T1F-r0-IvN" id="oVl-M8-iIi"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="yZP-7Q-Arw">
+                            <connections>
+                                <action selector="done:" destination="T1F-r0-IvN" id="4eK-jd-bEM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dateDatePicker" destination="sxj-Fe-uaT" id="6IM-y7-HSs"/>
+                        <outlet property="dateLabel" destination="xhS-aO-cpx" id="4qO-5t-Xz6"/>
+                        <outlet property="imageTableViewCell" destination="fNk-mM-0uf" id="EhC-75-xVJ"/>
+                        <outlet property="nameLabel" destination="WVG-hB-tDM" id="ykA-my-pBu"/>
+                        <outlet property="recurrenceTableViewCell" destination="EXw-U8-7Zq" id="7rU-HV-N5R"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kjz-5u-POP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
