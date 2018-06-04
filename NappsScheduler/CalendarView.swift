@@ -23,25 +23,6 @@ struct Style {
     static var activeCellLblColorHighlighted = UIColor.white
     static var weekdaysLblColor = UIColor.black
     
-    static func themeDark(){
-        bgColor = Colors.darkGray
-        monthViewLblColor = UIColor.white
-        monthViewBtnRightColor = UIColor.white
-        monthViewBtnLeftColor = UIColor.white
-        activeCellLblColor = UIColor.white
-        activeCellLblColorHighlighted = UIColor.black
-        weekdaysLblColor = UIColor.white
-    }
-    
-    static func themeLight(){
-        bgColor = UIColor.white
-        monthViewLblColor = UIColor.black
-        monthViewBtnRightColor = UIColor.black
-        monthViewBtnLeftColor = UIColor.black
-        activeCellLblColor = UIColor.black
-        activeCellLblColorHighlighted = UIColor.white
-        weekdaysLblColor = UIColor.black
-    }
 }
 
 class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, MonthViewDelegate {
@@ -54,34 +35,12 @@ class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     var todaysDate = 0
     var firstWeekDayOfMonth = 0   //(Sunday-Saturday 1-7)
     
+    var delegate : CalendarViewDelegate!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         initializeView()
-    }
-    
-    convenience init(theme: MyTheme) {
-        self.init()
-        
-        if theme == .dark {
-            Style.themeDark()
-        } else {
-            Style.themeLight()
-        }
-        
-        initializeView()
-    }
-    
-    func changeTheme() {
-        myCollectionView.reloadData()
-        
-        monthView.lblName.textColor = Style.monthViewLblColor
-        monthView.btnRight.setTitleColor(Style.monthViewBtnRightColor, for: .normal)
-        monthView.btnLeft.setTitleColor(Style.monthViewBtnLeftColor, for: .normal)
-        
-        for i in 0..<7 {
-            (weekdaysView.myStackView.subviews[i] as! UILabel).textColor = Style.weekdaysLblColor
-        }
     }
     
     func initializeView() {
@@ -135,6 +94,8 @@ class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         cell?.backgroundColor=Colors.darkRed
         let lbl = cell?.subviews[1] as! UILabel
         lbl.textColor=UIColor.white
+        
+        delegate.didSelectedDate()
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -190,14 +151,14 @@ class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         monthView.topAnchor.constraint(equalTo: topAnchor).isActive=true
         monthView.leftAnchor.constraint(equalTo: leftAnchor).isActive=true
         monthView.rightAnchor.constraint(equalTo: rightAnchor).isActive=true
-        monthView.heightAnchor.constraint(equalToConstant: 35).isActive=true
+        monthView.heightAnchor.constraint(equalToConstant: 65).isActive=true
         monthView.delegate=self
         
         addSubview(weekdaysView)
         weekdaysView.topAnchor.constraint(equalTo: monthView.bottomAnchor).isActive=true
         weekdaysView.leftAnchor.constraint(equalTo: leftAnchor).isActive=true
         weekdaysView.rightAnchor.constraint(equalTo: rightAnchor).isActive=true
-        weekdaysView.heightAnchor.constraint(equalToConstant: 30).isActive=true
+        weekdaysView.heightAnchor.constraint(equalToConstant: 40).isActive=true
         
         addSubview(myCollectionView)
         myCollectionView.topAnchor.constraint(equalTo: weekdaysView.bottomAnchor, constant: 0).isActive=true
@@ -289,4 +250,9 @@ extension String {
     var date: Date? {
         return String.dateFormatter.date(from: self)
     }
+}
+
+
+protocol CalendarViewDelegate : class {
+    func didSelectedDate()
 }

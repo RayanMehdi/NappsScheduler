@@ -14,7 +14,7 @@ protocol MonthViewDelegate: class {
 }
 
 class MonthView: UIView {
-    var monthsArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    var monthsArr = ["Janvier", "Férvier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
     var currentMonthIndex = 0
     var currentYear: Int = 0
     var delegate: MonthViewDelegate?

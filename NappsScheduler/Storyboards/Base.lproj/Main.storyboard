@@ -109,7 +109,7 @@
                         <viewLayoutGuide key="safeArea" id="C6l-oI-a33"/>
                     </view>
                     <connections>
-                        <segue destination="yQf-3Z-Ut6" kind="show" identifier="showListTasks" id="8B0-FJ-PXQ"/>
+                        <segue destination="yQf-3Z-Ut6" kind="show" identifier="showListTasks" id="RMC-z8-Ly8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYz-PE-rcb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -119,7 +119,7 @@
         <!--Date-->
         <scene sceneID="ifv-Wb-qKZ">
             <objects>
-                <tableViewController id="tCe-NU-Fxl" sceneMemberID="viewController">
+                <tableViewController id="tCe-NU-Fxl" customClass="ListTasksViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1gH-yZ-ZSV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
