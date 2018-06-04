@@ -143,7 +143,6 @@
 				73E6C21720BEB30A00EE7BF5 /* View */,
 				73E6C21620BEB2FE00EE7BF5 /* Storyboards */,
 				73E6C1E520BEB0B100EE7BF5 /* AppDelegate.swift */,
-				73E6C1E720BEB0B100EE7BF5 /* ViewController.swift */,
 				73E6C1EF20BEB0CC00EE7BF5 /* Assets.xcassets */,
 				73E6C1F420BEB0CC00EE7BF5 /* Info.plist */,
 				73E6C1EC20BEB0B100EE7BF5 /* NappsScheduler.xcdatamodeld */,
@@ -185,6 +184,7 @@
 				B81E184A20C0350200EA9C4C /* MonthView.swift */,
 				B81E184C20C0352E00EA9C4C /* WeekdaysView.swift */,
 				73B6059220C03DF800D921F1 /* TaskViewController.swift */,
+				73E6C1E720BEB0B100EE7BF5 /* ViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
