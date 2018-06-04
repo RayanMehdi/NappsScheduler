@@ -12,6 +12,9 @@ class ListTasksViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let button = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(ListTasksViewController.back))
+        self.navigationItem.leftBarButtonItem = button
+        print("Spaghett")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -36,9 +39,16 @@ class ListTasksViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
+    
 
+   @objc func back() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  
+     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...

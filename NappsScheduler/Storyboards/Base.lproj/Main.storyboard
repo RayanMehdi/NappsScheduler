@@ -109,7 +109,7 @@
                         <viewLayoutGuide key="safeArea" id="C6l-oI-a33"/>
                     </view>
                     <connections>
-                        <segue destination="yQf-3Z-Ut6" kind="show" identifier="showListTasks" id="RMC-z8-Ly8"/>
+                        <segue destination="yQf-3Z-Ut6" kind="presentation" identifier="showListTasks" id="RMC-z8-Ly8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYz-PE-rcb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -119,7 +119,7 @@
         <!--Date-->
         <scene sceneID="ifv-Wb-qKZ">
             <objects>
-                <tableViewController id="tCe-NU-Fxl" customClass="ListTasksViewController" sceneMemberID="viewController">
+                <tableViewController id="tCe-NU-Fxl" customClass="ListTasksViewController" customModule="NappsScheduler" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1gH-yZ-ZSV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -163,8 +163,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Date" id="Udg-ev-iXK">
-                        <barButtonItem key="leftBarButtonItem" title="Retour" id="aR5-0R-9mQ"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="FT4-U0-unb"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="FT4-U0-unb">
+                            <connections>
+                                <segue destination="T1F-r0-IvN" kind="show" id="YPN-dg-rI4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LfD-GK-psQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -372,7 +375,7 @@
         <scene sceneID="7l9-rW-BuC">
             <objects>
                 <tableViewController id="Eq0-W5-4zt" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="rSI-Zh-klk">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="rSI-Zh-klk" customClass="AddImageViewController">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -400,7 +403,7 @@
         <scene sceneID="wKd-sh-xGM">
             <objects>
                 <tableViewController id="lwC-Jc-HMM" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ztR-9w-hOA">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ztR-9w-hOA" customClass="AddRecurrenceViewController">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -462,4 +465,7 @@
     <resources>
         <image name="Image" width="800" height="748"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="YPN-dg-rI4"/>
+    </inferredMetricsTieBreakers>
 </document>
