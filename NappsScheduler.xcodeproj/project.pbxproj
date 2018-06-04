@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1442C7705FD98BDC224E3BA4 /* Pods_NappsScheduler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C4CEEF88A00F26A99857149 /* Pods_NappsScheduler.framework */; };
+		73B6059320C03DF900D921F1 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6059220C03DF800D921F1 /* TaskViewController.swift */; };
 		73E6C1E620BEB0B100EE7BF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E6C1E520BEB0B100EE7BF5 /* AppDelegate.swift */; };
 		73E6C1E820BEB0B100EE7BF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E6C1E720BEB0B100EE7BF5 /* ViewController.swift */; };
 		73E6C1EB20BEB0B100EE7BF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73E6C1E920BEB0B100EE7BF5 /* Main.storyboard */; };
@@ -20,6 +21,9 @@
 		73E6C21D20BEDCF400EE7BF5 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E6C21C20BEDCF400EE7BF5 /* Task.swift */; };
 		A047DAA3B54D09FBD1F066D9 /* Pods_NappsSchedulerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67AAC2A6C3D4FB7D911089D4 /* Pods_NappsSchedulerUITests.framework */; };
 		AEE5CAAE3B4D3E0D4394E53A /* Pods_NappsSchedulerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0FDAC6FE9BF586A6D792018 /* Pods_NappsSchedulerTests.framework */; };
+		B81E184920C034AF00EA9C4C /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81E184820C034AF00EA9C4C /* CalendarView.swift */; };
+		B81E184B20C0350200EA9C4C /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81E184A20C0350200EA9C4C /* MonthView.swift */; };
+		B81E184D20C0352E00EA9C4C /* WeekdaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81E184C20C0352E00EA9C4C /* WeekdaysView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,7 @@
 		6BF665004CBBAAE8B3836CF9 /* Pods-NappsSchedulerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NappsSchedulerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NappsSchedulerUITests/Pods-NappsSchedulerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6C4CEEF88A00F26A99857149 /* Pods_NappsScheduler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NappsScheduler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73520DA5FB3341AFAC5FB51E /* Pods-NappsSchedulerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NappsSchedulerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NappsSchedulerUITests/Pods-NappsSchedulerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		73B6059220C03DF800D921F1 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		73E6C1E220BEB0B100EE7BF5 /* NappsScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NappsScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73E6C1E520BEB0B100EE7BF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73E6C1E720BEB0B100EE7BF5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +68,9 @@
 		73E6C21A20BED7C200EE7BF5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		73E6C21C20BEDCF400EE7BF5 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		B6F267E3CCC677D6F7033C95 /* Pods-NappsSchedulerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NappsSchedulerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NappsSchedulerTests/Pods-NappsSchedulerTests.release.xcconfig"; sourceTree = "<group>"; };
+		B81E184820C034AF00EA9C4C /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarView.swift; path = NappsScheduler/CalendarView.swift; sourceTree = SOURCE_ROOT; };
+		B81E184A20C0350200EA9C4C /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MonthView.swift; path = NappsScheduler/MonthView.swift; sourceTree = SOURCE_ROOT; };
+		B81E184C20C0352E00EA9C4C /* WeekdaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeekdaysView.swift; path = NappsScheduler/WeekdaysView.swift; sourceTree = SOURCE_ROOT; };
 		C0FDAC6FE9BF586A6D792018 /* Pods_NappsSchedulerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NappsSchedulerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB291659DD767540B1C8278C /* Pods-NappsScheduler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NappsScheduler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NappsScheduler/Pods-NappsScheduler.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +181,10 @@
 		73E6C21720BEB30A00EE7BF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B81E184820C034AF00EA9C4C /* CalendarView.swift */,
+				B81E184A20C0350200EA9C4C /* MonthView.swift */,
+				B81E184C20C0352E00EA9C4C /* WeekdaysView.swift */,
+				73B6059220C03DF800D921F1 /* TaskViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -453,8 +465,12 @@
 				73E6C21B20BED7C200EE7BF5 /* User.swift in Sources */,
 				73E6C1E820BEB0B100EE7BF5 /* ViewController.swift in Sources */,
 				73E6C21D20BEDCF400EE7BF5 /* Task.swift in Sources */,
+				B81E184D20C0352E00EA9C4C /* WeekdaysView.swift in Sources */,
+				B81E184B20C0350200EA9C4C /* MonthView.swift in Sources */,
 				73E6C1EE20BEB0B100EE7BF5 /* NappsScheduler.xcdatamodeld in Sources */,
+				B81E184920C034AF00EA9C4C /* CalendarView.swift in Sources */,
 				73E6C1E620BEB0B100EE7BF5 /* AppDelegate.swift in Sources */,
+				73B6059320C03DF900D921F1 /* TaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
