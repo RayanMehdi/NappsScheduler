@@ -8,11 +8,6 @@
 
 import UIKit
 
-enum MyTheme {
-    case light
-    case dark
-}
-
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -23,13 +18,12 @@ class ViewController: UIViewController {
         self.view.backgroundColor=Style.bgColor
         
         view.addSubview(calenderView)
-        calenderView.topAnchor.constraint(equalTo: view.topAnchor, constant: 70).isActive=true
+        calenderView.delegate = self
+        calenderView.topAnchor.constraint(equalTo: view.topAnchor, constant: 140).isActive=true
         calenderView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -12).isActive=true
         calenderView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12).isActive=true
         calenderView.heightAnchor.constraint(equalToConstant: 365).isActive=true
         
-        let rightBarBtn = UIBarButtonItem(title: "Light", style: .plain, target: self, action: #selector(rightBarBtnAction))
-        self.navigationItem.rightBarButtonItem = rightBarBtn
     }
     
     override func viewWillLayoutSubviews() {
@@ -38,9 +32,8 @@ class ViewController: UIViewController {
     }
     
     @objc func rightBarBtnAction(sender: UIBarButtonItem) {
-        Style.themeLight()
         self.view.backgroundColor=Style.bgColor
-        calenderView.changeTheme()
+        //calenderView.changeTheme()
     }
     
     let calenderView: CalendarView = {
@@ -53,7 +46,14 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+}
 
-
+extension ViewController : CalendarViewDelegate{
+    func didSelectedDate() {
+        performSegue(withIdentifier: "showListTasks", sender: nil)
+    }
+    
+    
 }
 
