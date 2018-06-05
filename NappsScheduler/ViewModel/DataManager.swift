@@ -40,27 +40,6 @@ class DataManager{
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
    }
-
-    
-    func saveTasks(tasksId: Array<DocumentReference>){
-        var tasks = Array<Task>()
-        for taskId in tasksId {
-            print("CHEVRE \(taskId.path)")
-            var path = taskId.path.components(separatedBy: "/")
-            let docRef = db.collection(path[0]).document(path[1])
-            docRef.getDocument { (document, error) in
-                if let document = document, document.exists {
-                    let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                    //let task = Task(taskName: document.data()!["taskName"] as! String)
-                    tasks.append(Task(data: document.data()!, id: path[1]))
-                    //print("Document data: \(dataDescription)")
-                } else {
-                    print("Document does not exist")
-                }
-            }
-        }
-        save(tasks: tasks)
-    }
     
     func getPlanning(planningId: String? = "S9qp9mdbY2bCSylmpa7Q"){
         let planningRef = db.collection("Planning").document(planningId!)
@@ -78,12 +57,21 @@ class DataManager{
         
     }
     
-    
     func save(tasks: Array<Task>){
         self.cachedTasks = tasks
         print(cachedTasks.count)
         if(cachedTasks.count > 1){
             print(cachedTasks[0].taskName)
         }
+    }
+    
+    func addTask(task : Task){
+        db.collection("Task").document("test").setData([
+            "date": task.date,
+            "frequency": task.frequency?.rawValue,
+            "imgURL": task.imgURL,
+            "isChecked" : task.isChecked,
+            "needANotif" : task.needANotif,
+            "taskName" : task.taskName ], merge: true)
     }
 }

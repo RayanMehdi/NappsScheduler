@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class TaskViewController: UITableViewController {
 
@@ -18,6 +19,7 @@ class TaskViewController: UITableViewController {
     
     var icon : IconAsset = IconAsset.work
     var recurrence : Frequency = Frequency.Once
+    var task : Task!
     
     
     override func viewDidLoad() {
@@ -37,7 +39,11 @@ class TaskViewController: UITableViewController {
     }
     
     @IBAction func done(_ sender: Any) {
+        let task = Task(date: Timestamp(date: dateDatePicker.date), frequency: recurrence, imgURL: icon.rawValue, isChecked: false, needANotif: false, taskName: nameLabel.text)
+        DataManager.sharedInstance.addTask(task: task)
+        
         self.dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func datePickerChanged(_ sender: Any) {
