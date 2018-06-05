@@ -15,22 +15,22 @@ class Planning {
     
     //MARK: - Var
     var id: String?
-    var autisteId: String?
-    var responsableId: [String]?
-    var task: [Task]?
+    var autisteId: DocumentReference?
+    var responsableId: [DocumentReference]?
+    var task: [DocumentReference]?
     
     init(id: String?, autisteId: DocumentReference?, responsableId: [DocumentReference]?, task: [DocumentReference]?) {
-        /*self.id = id
+        self.id = id
         self.autisteId = autisteId
         self.responsableId = responsableId
-        self.task = task*/
+        self.task = task
     }
     
     init(data: [String: Any?], id: String) {
         self.id = id
-        /*self.autisteId = data["autisteId"] as? DocumentReference
+        self.autisteId = data["autisteId"] as? DocumentReference
         self.responsableId = data["responsableId"] as? [DocumentReference]
-        self.task = data["tasksId"] as? [DocumentReference]*/
+        self.task = data["tasksId"] as? [DocumentReference]
     }
 
 
