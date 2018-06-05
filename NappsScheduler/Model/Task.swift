@@ -7,50 +7,42 @@
 //
 
 import Foundation
-import ObjectMapper
+import Firebase
 
-enum Frequency : String{
-    case Daily
-    case Weekly
-    case Monthly
-    case TwoWeekly
-    case Yearly
-    case Once
+class Task{
+    var date : Timestamp?
+    var frequency : String?
+    var imgURL : String?
+    var isChecked : Bool?
+    var needANotif : Bool?
+    var taskName : String?
+    var taskId : String?
     
-}
-
-class Task: Mappable {
-    
-    var id: Int?
-    var date: Date?
-    var imgUrl: String?
-    var isChecked: Bool?
-    var needNotif: Bool?
-    var frequency: Frequency?
-    var name: String?
-    
-    
-    required init?(map: Map) {}
-    
-     func mapping(map: Map) {
-        id<-map["taskId"]
-        date<-map["date"]
-        imgUrl<-map["imgUrl"]
-        isChecked<-map["isChecked"]
-        needNotif<-map["sendANotif"]
-        name<-map["taskName"]
-        frequency <- (
-            map["repeat"],
-            TransformOf<Frequency, String>(
-                fromJSON: {
-                    guard $0 != nil else { return .Once }
-                    return Frequency(rawValue: $0!)
-            },
-                toJSON: { $0?.rawValue }
-            )
-        )
-        
+    init(date: Timestamp?, frequency: String?, imgURL: String?, isChecked: Bool?, needANotif: Bool?, taskName: String? ) {
+        self.date = date
+        self.frequency = frequency
+        self.imgURL = imgURL
+        self.isChecked = isChecked
+        self.needANotif = needANotif
+        self.taskName = taskName
     }
     
+    init(taskId: String, taskName: String,imgURL: String ) {
+        self.imgURL = imgURL
+        self.taskName = taskName
+        self.taskId = taskId
+    }
+    init(data: [String: Any?], id: String) {
+        self.date = data["date"] as? Timestamp
+        self.frequency = data["frequency"] as? String
+        self.imgURL = data["imgURL"] as? String
+        self.isChecked = data["isChecked"] as? Bool
+        self.needANotif = data["needANotif"] as? Bool
+        self.taskName = data["taskName"] as? String
+        self.taskId = id
+    }
+    init(taskName: String) {
+        self.taskName = taskName
+    }
     
 }
