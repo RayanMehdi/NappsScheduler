@@ -40,8 +40,6 @@ class DataManager{
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
    }
-
-    
     
     func getPlanning(planningId: String? = "S9qp9mdbY2bCSylmpa7Q"){
         let planningRef = db.collection("Planning").document(planningId!)
@@ -78,5 +76,13 @@ class DataManager{
         }
     }
     
-
+    func addTask(task : Task){
+        db.collection("Task").document("test").setData([
+            "date": task.date,
+            "frequency": task.frequency?.rawValue,
+            "imgURL": task.imgURL,
+            "isChecked" : task.isChecked,
+            "needANotif" : task.needANotif,
+            "taskName" : task.taskName ], merge: true)
+    }
 }
