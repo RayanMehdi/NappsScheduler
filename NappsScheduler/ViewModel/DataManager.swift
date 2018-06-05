@@ -77,7 +77,17 @@ class DataManager{
     }
     
     func addTask(task : Task){
-        db.collection("Task").document("test").setData([
+        db.collection("Task").document(task.taskName!).setData([
+            "date": task.date,
+            "frequency": task.frequency?.rawValue,
+            "imgURL": task.imgURL,
+            "isChecked" : task.isChecked,
+            "needANotif" : task.needANotif,
+            "taskName" : task.taskName ], merge: true)
+    }
+    
+    func modifTask(task : Task){
+        db.collection("Task").document(task.taskName!).setData([
             "date": task.date,
             "frequency": task.frequency?.rawValue,
             "imgURL": task.imgURL,

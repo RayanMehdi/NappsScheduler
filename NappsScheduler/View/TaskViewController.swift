@@ -20,6 +20,7 @@ class TaskViewController: UITableViewController {
     var icon : IconAsset = IconAsset.work
     var recurrence : Frequency = Frequency.Once
     var task : Task!
+    var needNotif : Bool = false
     
     
     override func viewDidLoad() {
@@ -27,6 +28,7 @@ class TaskViewController: UITableViewController {
 
         imageTableViewCell.image = UIImage(named: icon.rawValue)
         recurrenceLabel.text = Frequency.Once.rawValue
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,7 +41,7 @@ class TaskViewController: UITableViewController {
     }
     
     @IBAction func done(_ sender: Any) {
-        let task = Task(date: Timestamp(date: dateDatePicker.date), frequency: recurrence, imgURL: icon.rawValue, isChecked: false, needANotif: false, taskName: nameLabel.text)
+        let task = Task(date: Timestamp(date: dateDatePicker.date), frequency: recurrence, imgURL: icon.rawValue, isChecked: false, needANotif: needNotif, taskName: nameLabel.text)
         DataManager.sharedInstance.addTask(task: task)
         
         self.dismiss(animated: true, completion: nil)
@@ -70,6 +72,21 @@ class TaskViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            if cell.reuseIdentifier == "needNotifCell"{
+                if cell.accessoryType == .checkmark {
+                    cell.accessoryType = .none
+                    needNotif = false
+                } else {
+                    cell.accessoryType = .checkmark
+                    needNotif = true
+                }
+            }
+        }
+    }
+    
+    
     func iconChange(newIcon: IconAsset){
         self.icon = newIcon
         //self.imageTableViewCell.image = self.icon.image
@@ -82,3 +99,5 @@ class TaskViewController: UITableViewController {
     }
 
 }
+
+
