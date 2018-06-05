@@ -10,14 +10,27 @@ import Foundation
 import ObjectMapper
 
 enum Frequency : String{
-    case Daily
-    case Weekly
-    case Monthly
-    case TwoWeekly
-    case Yearly
-    case Once
+    case Daily = "Tous les jours"
+    case Weekly = "Toutes les semaines"
+    case Monthly = "Tous les mois"
+    case TwoWeekly = "Toutes les deux semaines"
+    case Yearly = "Tous les ans"
+    case Once = "Jamais"
     
 }
+
+enum IconAsset : String{
+    case bath
+    case Beer
+    case brush_teeth
+    case eat
+    case sleep
+    case work
+    var image : UIImage {
+        return UIImage(named: self.rawValue)!
+    }
+}
+
 
 class Task: Mappable {
     
