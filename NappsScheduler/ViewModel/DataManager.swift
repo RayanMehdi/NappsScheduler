@@ -67,8 +67,10 @@ class DataManager{
     }
     
     func getTask(path: String){
-        let planningRef = db.collection("Task").document(path)
-        planningRef.getDocument { (document, error) in
+        //let planningRef = db.collection("Task").document(path)
+        
+        let planningRef = db.collection("Task")
+        planningRef.document(path).getDocument { (document, error) in
             if let document = document, document.exists {
                 //_ = document.data().map(String.init(describing:)) ?? "nil"
                 self.cachedTasks.append(Task(data: document.data()!, id: path))
@@ -77,6 +79,8 @@ class DataManager{
                 print("Document does not exist")
             }
         }
+        
+        planningRef.order(by: "taskName")
     }
     
     func addTask(task : Task){

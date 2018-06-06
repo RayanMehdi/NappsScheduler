@@ -22,12 +22,17 @@ case Once = "Jamais"
 
 enum IconAsset : String{
 case bath
-case Beer
+case beer
 case brush_teeth
 case eat
 case sleep
 case work
-var image : UIImage {
+case coconut
+case donkey
+case lovni
+case music
+case sport
+    var image : UIImage {
     return UIImage(named: self.rawValue)!
     }
 }

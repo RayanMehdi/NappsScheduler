@@ -11,7 +11,7 @@ import UIKit
 class AddImageViewController: UITableViewController {
 
     var delegate: TaskViewController!
-    var listIcon: Array<IconAsset> = [IconAsset.bath, IconAsset.Beer, IconAsset.brush_teeth, IconAsset.eat, IconAsset.sleep, IconAsset.work]
+    var listIcon: Array<IconAsset> = [IconAsset.bath, IconAsset.beer, IconAsset.brush_teeth, IconAsset.eat, IconAsset.sleep, IconAsset.work, IconAsset.coconut, IconAsset.donkey, IconAsset.lovni, IconAsset.music, IconAsset.sport]
     
     override func viewDidLoad() {
         super.viewDidLoad()
