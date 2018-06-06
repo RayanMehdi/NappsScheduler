@@ -28,6 +28,9 @@ class DataManager{
 
     var cachedTasks = [Task]()
     var cachedPlanning : Planning? = nil
+    var ref : DocumentReference?
+    
+
     
     private init() {
         initFirebase()
@@ -77,13 +80,29 @@ class DataManager{
     }
     
     func addTask(task : Task){
-        db.collection("Task").document(task.taskName!).setData([
+        db.collection("Task").document(task.taskId!).setData([
             "date": task.date,
             "frequency": task.frequency?.rawValue,
             "imgURL": task.imgURL,
             "isChecked" : task.isChecked,
             "needANotif" : task.needANotif,
             "taskName" : task.taskName ], merge: true)
+        
+        ref = db.collection("Task").document(task.taskId!)
+        cachedPlanning?.task?.append(ref!)
+        db.collection("Planning").document((cachedPlanning?.id)!).updateData([
+            "tasksId": cachedPlanning?.task
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+        
+        
+        
+        
     }
     
     func modifTask(task : Task){

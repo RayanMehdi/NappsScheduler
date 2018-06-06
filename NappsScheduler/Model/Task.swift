@@ -48,6 +48,7 @@ class Task{
         self.isChecked = isChecked
         self.needANotif = needANotif
         self.taskName = taskName
+        self.taskId = "\(DataManager.sharedInstance.cachedTasks.count + 1)"
     }
     
     init(taskId: String, taskName: String,imgURL: String ) {
