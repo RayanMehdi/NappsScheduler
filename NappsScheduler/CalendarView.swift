@@ -95,7 +95,7 @@ class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         let lbl = cell?.subviews[1] as! UILabel
         lbl.textColor=UIColor.white
         
-        delegate.didSelectedDate()
+        delegate.didSelectedDate(day: lbl.text!)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -254,5 +254,5 @@ extension String {
 
 
 protocol CalendarViewDelegate : class {
-    func didSelectedDate()
+    func didSelectedDate(day: String)
 }

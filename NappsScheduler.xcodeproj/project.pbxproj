@@ -27,6 +27,8 @@
 		B81E184920C034AF00EA9C4C /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81E184820C034AF00EA9C4C /* CalendarView.swift */; };
 		B81E184B20C0350200EA9C4C /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81E184A20C0350200EA9C4C /* MonthView.swift */; };
 		B81E184D20C0352E00EA9C4C /* WeekdaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81E184C20C0352E00EA9C4C /* WeekdaysView.swift */; };
+		B829D55D20C7DB1500F902CE /* ListTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B829D55C20C7DB1500F902CE /* ListTaskViewModel.swift */; };
+		B829D55F20C8057000F902CE /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B829D55E20C8057000F902CE /* TaskViewModel.swift */; };
 		B891722420C5374700E5ABBB /* ListTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B891722320C5374700E5ABBB /* ListTasksViewController.swift */; };
 		B891722620C56A2100E5ABBB /* AddImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B891722520C56A2000E5ABBB /* AddImageViewController.swift */; };
 		B891722820C56A4200E5ABBB /* AddRecurenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B891722720C56A4200E5ABBB /* AddRecurenceViewController.swift */; };
@@ -80,6 +82,8 @@
 		B81E184820C034AF00EA9C4C /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarView.swift; path = NappsScheduler/CalendarView.swift; sourceTree = SOURCE_ROOT; };
 		B81E184A20C0350200EA9C4C /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MonthView.swift; path = NappsScheduler/MonthView.swift; sourceTree = SOURCE_ROOT; };
 		B81E184C20C0352E00EA9C4C /* WeekdaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeekdaysView.swift; path = NappsScheduler/WeekdaysView.swift; sourceTree = SOURCE_ROOT; };
+		B829D55C20C7DB1500F902CE /* ListTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTaskViewModel.swift; sourceTree = "<group>"; };
+		B829D55E20C8057000F902CE /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		B891722320C5374700E5ABBB /* ListTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTasksViewController.swift; sourceTree = "<group>"; };
 		B891722520C56A2000E5ABBB /* AddImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageViewController.swift; sourceTree = "<group>"; };
 		B891722720C56A4200E5ABBB /* AddRecurenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecurenceViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 			isa = PBXGroup;
 			children = (
 				73A19E9420C672A300264A19 /* DataManager.swift */,
+				B829D55C20C7DB1500F902CE /* ListTaskViewModel.swift */,
+				B829D55E20C8057000F902CE /* TaskViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -487,12 +493,14 @@
 				73E6C21D20BEDCF400EE7BF5 /* Task.swift in Sources */,
 				B81E184D20C0352E00EA9C4C /* WeekdaysView.swift in Sources */,
 				B81E184B20C0350200EA9C4C /* MonthView.swift in Sources */,
+				B829D55D20C7DB1500F902CE /* ListTaskViewModel.swift in Sources */,
 				B891722820C56A4200E5ABBB /* AddRecurenceViewController.swift in Sources */,
 				73E6C1EE20BEB0B100EE7BF5 /* NappsScheduler.xcdatamodeld in Sources */,
 				B81E184920C034AF00EA9C4C /* CalendarView.swift in Sources */,
 				73A19E9520C672A300264A19 /* DataManager.swift in Sources */,
 				B891722620C56A2100E5ABBB /* AddImageViewController.swift in Sources */,
 				73E6C1E620BEB0B100EE7BF5 /* AppDelegate.swift in Sources */,
+				B829D55F20C8057000F902CE /* TaskViewModel.swift in Sources */,
 				73B6059320C03DF900D921F1 /* TaskViewController.swift in Sources */,
 				B891722420C5374700E5ABBB /* ListTasksViewController.swift in Sources */,
 			);

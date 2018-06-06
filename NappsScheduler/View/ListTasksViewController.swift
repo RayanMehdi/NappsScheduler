@@ -8,19 +8,25 @@
 
 import UIKit
 
+class TaskTableViewCell: UITableViewCell {
+    @IBOutlet weak var taskNameLabel: UILabel!
+    @IBOutlet weak var taskTimeLabel: UILabel!
+}
+
 class ListTasksViewController: UITableViewController {
+    
+    var dateTasks: String!
+    var viewModel = ListTasksViewModel.sharedInstance
+    
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let button = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(ListTasksViewController.back))
-        self.navigationItem.leftBarButtonItem = button
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         print("Spaghett")
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        navigationController?.title = dateTasks
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,20 +36,28 @@ class ListTasksViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return viewModel.selectedDayTask.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let calendar = Calendar.current
+        let dateFromTimestamp = viewModel.selectedDayTask[indexPath.row].date?.dateValue()
+        let hour = calendar.component(.hour, from: dateFromTimestamp!)
+        let minutes = calendar.component(.minute, from: dateFromTimestamp!)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "taskTableViewCell") as! TaskTableViewCell
+        cell.taskNameLabel.text = viewModel.selectedDayTask[indexPath.row].taskName
+        
+        
+        cell.taskTimeLabel.text = (minutes < 10) ? "\(hour):0\(minutes)" : "\(hour):\(minutes)"
+        
+        return cell
     }
     
 
-   @objc func back() {
-        dismiss(animated: true, completion: nil)
-    }
+
     
 
 

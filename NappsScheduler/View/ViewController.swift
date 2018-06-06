@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var selectedDate: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,10 +49,19 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "showListTasks") {
+            let segueDestination = segue.destination as? ListTasksViewController
+            segueDestination?.viewModel.fillCurrentDayTasks(tasks: DataManager.sharedInstance.cachedTasks)
+            segueDestination?.navigationItem.title = selectedDate
+        }
+    }
+    
 }
 
 extension ViewController : CalendarViewDelegate{
-    func didSelectedDate() {
+    func didSelectedDate(day: String) {
+        selectedDate = day + " " + "\(calenderView.monthView.monthsArr[calenderView.currentMonthIndex - 1])" + " " + "\(calenderView.currentYear)"
         performSegue(withIdentifier: "showListTasks", sender: nil)
     }
     
