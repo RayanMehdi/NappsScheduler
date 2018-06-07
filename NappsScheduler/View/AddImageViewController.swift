@@ -10,7 +10,7 @@ import UIKit
 
 class AddImageViewController: UITableViewController {
 
-    var delegate: TaskViewController!
+    var delegate: AddImageViewControllerDelegate!
     var listIcon: Array<IconAsset> = [IconAsset.bath, IconAsset.beer, IconAsset.brush_teeth, IconAsset.eat, IconAsset.sleep, IconAsset.work, IconAsset.coconut, IconAsset.donkey, IconAsset.lovni, IconAsset.music, IconAsset.sport]
     
     override func viewDidLoad() {
@@ -34,8 +34,13 @@ class AddImageViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate.iconChange(newIcon: listIcon[indexPath.row])
+        var icon = listIcon[indexPath.row]
+        delegate.didSelectNewIcon(newIcon:icon)
         self.navigationController?.popViewController(animated: true)
     }
 
+}
+
+protocol AddImageViewControllerDelegate : class{
+    func didSelectNewIcon(newIcon: IconAsset)
 }

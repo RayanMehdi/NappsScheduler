@@ -25,10 +25,13 @@ class TaskViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         imageTableViewCell.image = UIImage(named: icon.rawValue)
         recurrenceLabel.text = Frequency.Once.rawValue
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,6 +39,7 @@ class TaskViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+   
     @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -86,17 +90,22 @@ class TaskViewController: UITableViewController {
         }
     }
     
-    
-    func iconChange(newIcon: IconAsset){
-        self.icon = newIcon
-        self.imageTableViewCell.image = UIImage(named: self.icon.rawValue)
-    }
-    
     func recurrenceChange(newFrequency: Frequency){
         self.recurrence = newFrequency
         self.recurrenceLabel.text = self.recurrence.rawValue
     }
 
 }
+
+extension TaskViewController : AddImageViewControllerDelegate
+{
+    func didSelectNewIcon(newIcon: IconAsset) {
+        self.icon = newIcon
+        self.imageTableViewCell.image = UIImage(named: self.icon.rawValue)
+    }
+    
+    
+}
+
 
 

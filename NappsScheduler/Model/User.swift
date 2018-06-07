@@ -7,9 +7,9 @@
 //
 
 import Foundation
-import ObjectMapper
 
-class User : Mappable {
+
+class User {
     
     var id : String?
     var firstName: String?
@@ -18,7 +18,6 @@ class User : Mappable {
     var idAutist: String?
     
     
-    required init?(map: Map) {}
     
     init(id: String?, firstName: String?,lastName: String?, mail: String?, idAutist: String? ) {
         self.id = id
@@ -27,16 +26,5 @@ class User : Mappable {
         self.mail = mail
         self.idAutist = idAutist
     }
-    
-    func mapping(map: Map) {
-        id<-map["id"]
-        firstName<-map["firstName"]
-        lastName<-map["lastName"]
-        mail<-map["mail"]
-        idAutist<-map["autisteId"]
-    }
-    
-    
-    
     
 }

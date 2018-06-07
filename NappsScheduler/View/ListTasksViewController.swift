@@ -53,25 +53,7 @@ class ListTasksViewController: UITableViewController {
         return cell
     }
     
-    @IBAction func addTask() {
-        
-        let alertController = UIAlertController(title: "Ajout tâche", message: "Voulez-vous ajouter une tâche instantanée ?", preferredStyle: .actionSheet)
-        
-        let normalTaskAction = UIAlertAction(title: "Non", style: .default, handler: { (action) in
-            self.present(TaskViewController(), animated: true, completion: nil)
-        })
-        let taskInstantaneAction = UIAlertAction(title: "Oui", style: .default, handler: { (action) in
-            self.present(TaskInstantaneViewController(), animated: true, completion: nil)
-        })
-        let cancel = UIAlertAction(title: "Annuler", style: .default, handler: { (action) in
-            self.dismiss(animated: true, completion: nil)
-        })
-        
-        alertController.addAction(normalTaskAction)
-        alertController.addAction(taskInstantaneAction)
-        alertController.addAction(cancel)
-        present(alertController, animated: true, completion: nil)
-    }
+
     
     
 

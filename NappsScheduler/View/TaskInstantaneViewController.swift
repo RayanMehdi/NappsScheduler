@@ -8,18 +8,23 @@
 
 import UIKit
 
-class TaskInstantaneViewController: UIViewController {
+class TaskInstantaneViewController: UITableViewController {
 
     @IBOutlet weak var textFieldTaskInstantane: UITextField!
-    @IBOutlet weak var imageViewIcon: UIImageView!
+
+    @IBOutlet weak var iconImageView: UIImageView!
     
     var icon : IconAsset = IconAsset.work
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        imageViewIcon.image = UIImage(named: icon.rawValue)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        iconImageView.image = UIImage(named: icon.rawValue)
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,6 +37,7 @@ class TaskInstantaneViewController: UIViewController {
     }
     
     @IBAction func done(_ sender: Any) {
+        DataManager.sharedInstance.sendMessage(message: Message(messageName: textFieldTaskInstantane.text!, imgURL: icon.rawValue))
         self.dismiss(animated: true, completion: nil)
         
     }
@@ -39,14 +45,18 @@ class TaskInstantaneViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showAddIcon" {
             if let dest = segue.destination as? AddImageViewController{
-                //dest.delegate = self;
+                dest.delegate = self;
             }
         }
     }
-    
-    func iconChange(newIcon: IconAsset){
+}
+
+extension TaskInstantaneViewController : AddImageViewControllerDelegate
+{
+    func didSelectNewIcon(newIcon: IconAsset) {
         self.icon = newIcon
-        self.imageViewIcon.image = UIImage(named: self.icon.rawValue)
+        self.iconImageView.image = UIImage(named: self.icon.rawValue)
     }
+    
     
 }

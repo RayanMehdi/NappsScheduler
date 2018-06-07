@@ -96,12 +96,14 @@
                     <navigationItem key="navigationItem" id="7gS-Om-yf3">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cmY-Vx-6Ts">
                             <connections>
-                                <segue destination="OK8-D4-yb0" kind="presentation" identifier="" id="gD9-GP-Kup"/>
+                                <action selector="addAction:" destination="3p7-4w-LIg" id="t39-XY-HcT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="tCe-NU-Fxl" kind="show" identifier="showListTasks" id="zxJ-rI-rhg"/>
+                        <segue destination="Iuh-lF-3or" kind="show" identifier="FromCalendarToInstantMessage" id="Wfn-YM-63w"/>
+                        <segue destination="OK8-D4-yb0" kind="show" identifier="FromCalendarToTask" id="Pnz-sU-93o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYz-PE-rcb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -173,7 +175,7 @@
                     <navigationItem key="navigationItem" id="Udg-ev-iXK">
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="FT4-U0-unb">
                             <connections>
-                                <action selector="addTask" destination="tCe-NU-Fxl" id="ICl-Ud-jj6"/>
+                                <segue destination="T1F-r0-IvN" kind="show" identifier="FromListToTask" id="Osr-GV-KQn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -385,7 +387,7 @@
                     <navigationItem key="navigationItem" title="Ajout d'une tâche" id="iuc-7M-L9L">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="i1F-El-75c">
                             <connections>
-                                <action selector="cancel:" destination="T1F-r0-IvN" id="oVl-M8-iIi"/>
+                                <action selector="cancel:" destination="T1F-r0-IvN" id="Ieo-4U-Irw"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="yZP-7Q-Arw">
@@ -432,7 +434,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iVj-qQ-Iq6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1945" y="1370"/>
+            <point key="canvasLocation" x="2884" y="1369.5652173913045"/>
         </scene>
         <!--Add Recurence View Controller-->
         <scene sceneID="wKd-sh-xGM">
@@ -481,7 +483,7 @@
         <!--Ajout tâche instantanée-->
         <scene sceneID="J2T-xa-fwd">
             <objects>
-                <tableViewController storyboardIdentifier="TaskInstantaneViewController" id="9at-D0-wXN" customClass="TaskInstantaneViewController" sceneMemberID="viewController">
+                <tableViewController id="9at-D0-wXN" customClass="TaskInstantaneViewController" customModule="NappsScheduler" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="mmn-c8-p3h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -559,7 +561,7 @@
                     <navigationItem key="navigationItem" title="Ajout tâche instantanée" id="PFh-GM-H6b">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Cag-5I-Hva">
                             <connections>
-                                <action selector="cancel:" destination="9at-D0-wXN" id="flx-Ye-pxq"/>
+                                <action selector="cancel:" destination="9at-D0-wXN" id="qLB-Vn-xAU"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="QSr-xp-xmF">
@@ -569,15 +571,31 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="imageTableViewCell" destination="D0E-E5-3Pc" id="iSp-t1-hIu"/>
-                        <outlet property="imageViewIcon" destination="D0E-E5-3Pc" id="rFh-X2-qfi"/>
-                        <outlet property="nameLabel" destination="TJg-Bc-35l" id="qYM-Ve-KbF"/>
+                        <outlet property="iconImageView" destination="D0E-E5-3Pc" id="tS5-XT-M8W"/>
                         <outlet property="textFieldTaskInstantane" destination="TJg-Bc-35l" id="3fQ-67-9YE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zn3-dE-Vt1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="1678"/>
+            <point key="canvasLocation" x="1871.2" y="1677.2113943028487"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YkJ-g0-rvP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Iuh-lF-3or" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lmF-Tk-fMU">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9at-D0-wXN" kind="relationship" relationship="rootViewController" id="nej-Gs-Fyc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2I7-gy-qEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="932" y="1677.2113943028487"/>
         </scene>
     </scenes>
     <resources>
@@ -585,5 +603,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gHT-yf-drE"/>
+        <segue reference="Osr-GV-KQn"/>
     </inferredMetricsTieBreakers>
 </document>
