@@ -34,7 +34,20 @@ class DataManager{
     
     private init() {
         initFirebase()
+        addListener(collection: "Planning", document: "S9qp9mdbY2bCSylmpa7Q") //ajout du listener
         // loadData()
+    }
+    
+    //AJOUT D'UN LISTENER SUR UNE COLLECTION FIREBASE
+    func addListener(collection: String, document: String){
+        self.db.collection(collection).document(document)
+            .addSnapshotListener { documentSnapshot, error in
+                guard let document = documentSnapshot else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                self.getPlanning()
+        }
     }
     
     private func initFirebase(){
@@ -52,6 +65,7 @@ class DataManager{
             self.cachedTasks = [Task]()
             //_ = document.data().map(String.init(describing:)) ?? "nil"
             self.cachedPlanning = Planning(data: document.data()!, id: planningId!)
+            self.cachedTasks.removeAll()
             
             for task in (self.cachedPlanning?.task)!{
                 self.getTask(path: task.documentID)
@@ -62,6 +76,7 @@ class DataManager{
         } else {
             print("Document does not exist")
         }
+            
         }
 
     }
