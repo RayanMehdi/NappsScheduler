@@ -32,6 +32,8 @@
 		B891722420C5374700E5ABBB /* ListTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B891722320C5374700E5ABBB /* ListTasksViewController.swift */; };
 		B891722620C56A2100E5ABBB /* AddImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B891722520C56A2000E5ABBB /* AddImageViewController.swift */; };
 		B891722820C56A4200E5ABBB /* AddRecurenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B891722720C56A4200E5ABBB /* AddRecurenceViewController.swift */; };
+		B8DD6CE920C9337900C47D8A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD6CE820C9337900C47D8A /* LoginViewController.swift */; };
+		B8DD6CEB20C9338900C47D8A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD6CEA20C9338900C47D8A /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		B891722320C5374700E5ABBB /* ListTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTasksViewController.swift; sourceTree = "<group>"; };
 		B891722520C56A2000E5ABBB /* AddImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageViewController.swift; sourceTree = "<group>"; };
 		B891722720C56A4200E5ABBB /* AddRecurenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecurenceViewController.swift; sourceTree = "<group>"; };
+		B8DD6CE820C9337900C47D8A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B8DD6CEA20C9338900C47D8A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		C0FDAC6FE9BF586A6D792018 /* Pods_NappsSchedulerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NappsSchedulerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB291659DD767540B1C8278C /* Pods-NappsScheduler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NappsScheduler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NappsScheduler/Pods-NappsScheduler.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,6 +209,7 @@
 				B891722320C5374700E5ABBB /* ListTasksViewController.swift */,
 				B891722520C56A2000E5ABBB /* AddImageViewController.swift */,
 				B891722720C56A4200E5ABBB /* AddRecurenceViewController.swift */,
+				B8DD6CE820C9337900C47D8A /* LoginViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 				73A19E9420C672A300264A19 /* DataManager.swift */,
 				B829D55C20C7DB1500F902CE /* ListTaskViewModel.swift */,
 				B829D55E20C8057000F902CE /* TaskViewModel.swift */,
+				B8DD6CEA20C9338900C47D8A /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -497,11 +503,13 @@
 				B81E184B20C0350200EA9C4C /* MonthView.swift in Sources */,
 				B829D55D20C7DB1500F902CE /* ListTaskViewModel.swift in Sources */,
 				B891722820C56A4200E5ABBB /* AddRecurenceViewController.swift in Sources */,
+				B8DD6CEB20C9338900C47D8A /* LoginViewModel.swift in Sources */,
 				73E6C1EE20BEB0B100EE7BF5 /* NappsScheduler.xcdatamodeld in Sources */,
 				B81E184920C034AF00EA9C4C /* CalendarView.swift in Sources */,
 				73A19E9520C672A300264A19 /* DataManager.swift in Sources */,
 				B891722620C56A2100E5ABBB /* AddImageViewController.swift in Sources */,
 				73E6C1E620BEB0B100EE7BF5 /* AppDelegate.swift in Sources */,
+				B8DD6CE920C9337900C47D8A /* LoginViewController.swift in Sources */,
 				B829D55F20C8057000F902CE /* TaskViewModel.swift in Sources */,
 				73B6059320C03DF900D921F1 /* TaskViewController.swift in Sources */,
 				B891722420C5374700E5ABBB /* ListTasksViewController.swift in Sources */,
