@@ -18,8 +18,10 @@ class ListTasksViewController: UITableViewController {
     var dateTasks: String!
     var viewModel = ListTasksViewModel.sharedInstance
     
-    
-
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.sortDayTasks()
+        self.tableView.reloadData()
+    }
     
     
     override func viewDidLoad() {
