@@ -133,4 +133,12 @@ class DataManager{
             "needANotif" : task.needANotif,
             "taskName" : task.taskName ], merge: true)
     }
+    
+    func sendMessage(message: Message){
+        db.collection("Message").document(message.messageId!).setData([
+            "imgURL": message.imgUrl,
+            "isFirstTime": true,
+            "taskName": message.messageName], merge: true)
+        
+    }
 }

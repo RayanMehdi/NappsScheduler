@@ -49,6 +49,25 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func addAction(_ sender: Any) {
+        
+            let alertController = UIAlertController(title: "Ajout tâche", message: "Quel type de tâche souhaitez vous créer ?", preferredStyle: .actionSheet)
+        
+            let normalTaskAction = UIAlertAction(title: "Tâche normale", style: .default, handler: { (action) in
+                self.performSegue(withIdentifier: "FromCalendarToTask", sender: nil)
+            })
+            let taskInstantaneAction = UIAlertAction(title: "Message Instantané", style: .default, handler: { (action) in
+                self.performSegue(withIdentifier: "FromCalendarToInstantMessage", sender: nil)
+            })
+            let cancel = UIAlertAction(title: "Annuler", style: .cancel, handler: { (action) in
+                self.dismiss(animated: true, completion: nil)
+            })
+        
+            alertController.addAction(normalTaskAction)
+            alertController.addAction(taskInstantaneAction)
+            alertController.addAction(cancel)
+            present(alertController, animated: true, completion: nil)
+        }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "showListTasks") {
             let segueDestination = segue.destination as? ListTasksViewController

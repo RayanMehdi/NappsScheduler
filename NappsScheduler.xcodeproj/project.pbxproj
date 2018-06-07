@@ -9,9 +9,11 @@
 /* Begin PBXBuildFile section */
 		1442C7705FD98BDC224E3BA4 /* Pods_NappsScheduler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C4CEEF88A00F26A99857149 /* Pods_NappsScheduler.framework */; };
 		73163D8B20C522C800F0DAD4 /* Planning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73163D8A20C522C800F0DAD4 /* Planning.swift */; };
+		739C582B20C91AF000D53F80 /* TaskInstantaneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C582A20C91AF000D53F80 /* TaskInstantaneViewController.swift */; };
 		73A19E9520C672A300264A19 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A19E9420C672A300264A19 /* DataManager.swift */; };
 		73A19E9720C68B1A00264A19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73A19E9620C68B1A00264A19 /* GoogleService-Info.plist */; };
 		73B6059320C03DF900D921F1 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6059220C03DF800D921F1 /* TaskViewController.swift */; };
+		73C5550F20C945B000CEC14E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C5550E20C945B000CEC14E /* Message.swift */; };
 		73E6C1E620BEB0B100EE7BF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E6C1E520BEB0B100EE7BF5 /* AppDelegate.swift */; };
 		73E6C1E820BEB0B100EE7BF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E6C1E720BEB0B100EE7BF5 /* ViewController.swift */; };
 		73E6C1EB20BEB0B100EE7BF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73E6C1E920BEB0B100EE7BF5 /* Main.storyboard */; };
@@ -61,9 +63,11 @@
 		6C4CEEF88A00F26A99857149 /* Pods_NappsScheduler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NappsScheduler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73163D8A20C522C800F0DAD4 /* Planning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planning.swift; sourceTree = "<group>"; };
 		73520DA5FB3341AFAC5FB51E /* Pods-NappsSchedulerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NappsSchedulerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NappsSchedulerUITests/Pods-NappsSchedulerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		739C582A20C91AF000D53F80 /* TaskInstantaneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInstantaneViewController.swift; sourceTree = "<group>"; };
 		73A19E9420C672A300264A19 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		73A19E9620C68B1A00264A19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		73B6059220C03DF800D921F1 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
+		73C5550E20C945B000CEC14E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		73E6C1E220BEB0B100EE7BF5 /* NappsScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NappsScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73E6C1E520BEB0B100EE7BF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73E6C1E720BEB0B100EE7BF5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 				B891722520C56A2000E5ABBB /* AddImageViewController.swift */,
 				B891722720C56A4200E5ABBB /* AddRecurenceViewController.swift */,
 				B8DD6CE820C9337900C47D8A /* LoginViewController.swift */,
+				739C582A20C91AF000D53F80 /* TaskInstantaneViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 				73E6C21A20BED7C200EE7BF5 /* User.swift */,
 				73E6C21C20BEDCF400EE7BF5 /* Task.swift */,
 				73163D8A20C522C800F0DAD4 /* Planning.swift */,
+				73C5550E20C945B000CEC14E /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -387,19 +393,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NappsScheduler/Pods-NappsScheduler-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya-ObjectMapper/Moya_ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
@@ -409,19 +407,11 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
@@ -498,8 +488,10 @@
 				73163D8B20C522C800F0DAD4 /* Planning.swift in Sources */,
 				73E6C21B20BED7C200EE7BF5 /* User.swift in Sources */,
 				73E6C1E820BEB0B100EE7BF5 /* ViewController.swift in Sources */,
+				73C5550F20C945B000CEC14E /* Message.swift in Sources */,
 				73E6C21D20BEDCF400EE7BF5 /* Task.swift in Sources */,
 				B81E184D20C0352E00EA9C4C /* WeekdaysView.swift in Sources */,
+				739C582B20C91AF000D53F80 /* TaskInstantaneViewController.swift in Sources */,
 				B81E184B20C0350200EA9C4C /* MonthView.swift in Sources */,
 				B829D55D20C7DB1500F902CE /* ListTaskViewModel.swift in Sources */,
 				B891722820C56A4200E5ABBB /* AddRecurenceViewController.swift in Sources */,
