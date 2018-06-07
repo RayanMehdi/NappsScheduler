@@ -8,12 +8,27 @@
 
 import Foundation
 class LoginViewModel {
-    
-    //MARK: - properties
-    var username: String?
-    var password: String?
-    
-    static let sharedInstance = TaskViewModel()
+
+    static let sharedInstance = LoginViewModel()
     
     private init() {}
+    
+    func isLoginEmpty(username:String?, password:String?)->Bool{
+        if (username?.isEmpty)! || (password?.isEmpty)!{
+            return true
+        }
+        return false
+    }
+    
+    func isLoginValid(username:String?, password:String?)->Bool{
+        if username != "test@test.com"{
+            return false
+        }
+        if password != "test"{
+            return false
+        }
+        return true
+    }
 }
+
+

@@ -9,7 +9,13 @@
 import UIKit
 import Firebase
 
-class TaskViewController: UITableViewController {
+enum NavContext {
+    case newFromList
+    case newFromCalendar
+    case edit
+}
+
+class TaskViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var imageTableViewCell: UIImageView!
@@ -22,10 +28,12 @@ class TaskViewController: UITableViewController {
     var needNotif : Bool = false
     var delegate : TaskViewModelDelegate?
     let viewModel =  TaskViewModel.sharedInstance
+    var nav: NavContext?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
         if let taskToEdit = viewModel.task{
             self.navigationItem.title = "ÉDITER UNE TÂCHE"
             self.nameLabel.text = taskToEdit.taskName
@@ -52,16 +60,23 @@ class TaskViewController: UITableViewController {
         dateLabel.text = strDate
         
     }
+    
+    @IBAction func cancelAction(){
+        viewModel.task = nil
+        if self.nav == NavContext.newFromCalendar{
+            self.dismiss(animated: true, completion: nil)
+        }
+        else{
+            _ = navigationController?.popViewController(animated: true)
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-   
-    @IBAction func cancel(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
+
     
     @IBAction func done(_ sender: Any) {
         if self.viewModel.task != nil{
@@ -72,12 +87,18 @@ class TaskViewController: UITableViewController {
             self.viewModel.task?.frequency = recurrence
             delegate?.taskViewModel(TaskViewModel.sharedInstance, didFinishEditingItem: self.viewModel.task!)
         }else{
-           // delegate?.itemDetailViewController(self, didFinishAddingItem: CheckListItem.init(text: titleTextField.text!))
-
         let task = Task(date: Timestamp(date: dateDatePicker.date), frequency: recurrence, imgURL: icon.rawValue, isChecked: false, needANotif: needNotif, taskName: nameLabel.text)
         DataManager.sharedInstance.addTask(task: task)
         }
-        self.dismiss(animated: true, completion: nil)
+        if nav == NavContext.newFromCalendar{
+            self.viewModel.task = nil
+            self.dismiss(animated: true, completion: nil)
+            
+        }else{
+            self.viewModel.task = nil
+            self.navigationController?.popToRootViewController(animated: true)
+            
+        }
     }
     
     @IBAction func datePickerChanged(_ sender: Any) {
@@ -86,7 +107,7 @@ class TaskViewController: UITableViewController {
         dateFormatter.dateStyle = DateFormatter.Style.short
         dateFormatter.timeStyle = DateFormatter.Style.short
         dateFormatter.locale = Locale(identifier: "FR-fr")
-        
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
         let strDate = dateFormatter.string(from: dateDatePicker.date)
         dateLabel.text = strDate
     }
@@ -122,12 +143,21 @@ class TaskViewController: UITableViewController {
         self.recurrence = newFrequency
         self.recurrenceLabel.text = self.recurrence.rawValue
     }
+    
+    @IBAction func textfieldEditing(_ textField: UITextField) {
+        self.navigationItem.rightBarButtonItem?.isEnabled = !(textField.text!.isEmpty)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return true
+    }
 
 }
 
 extension TaskViewController : AddImageViewControllerDelegate
 {
     func didSelectNewIcon(newIcon: IconAsset) {
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
         self.icon = newIcon
         self.imageTableViewCell.image = UIImage(named: self.icon.rawValue)
     }

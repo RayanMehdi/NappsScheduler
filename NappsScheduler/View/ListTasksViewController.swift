@@ -72,7 +72,14 @@ class ListTasksViewController: UITableViewController {
             let tv = sender as! UITableViewCell
             let indexPath = tableView.indexPath(for: tv)
             destinationNavigationController.viewModel.task = viewModel.selectedDayTask[(indexPath?.row)!]
+            destinationNavigationController.nav = NavContext.edit
             
+        }
+        if segue.identifier == "newTask"{
+            let destinationNavigationController = segue.destination as! TaskViewController
+            destinationNavigationController.delegate = self
+            destinationNavigationController.nav = NavContext.newFromList
+            destinationNavigationController.viewModel.task = nil
         }
     }
 
@@ -93,7 +100,6 @@ extension ListTasksViewController : TaskViewModelDelegate
         DataManager.sharedInstance.modifTask(task: item)
 
         tableView.reloadData()
-        dismiss(animated: true, completion: nil)
     }
     
     

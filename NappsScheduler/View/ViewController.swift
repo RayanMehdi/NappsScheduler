@@ -60,7 +60,7 @@ class ViewController: UIViewController {
                 self.performSegue(withIdentifier: "FromCalendarToInstantMessage", sender: nil)
             })
             let cancel = UIAlertAction(title: "Annuler", style: .cancel, handler: { (action) in
-                self.dismiss(animated: true, completion: nil)
+                
             })
         
             alertController.addAction(normalTaskAction)
@@ -73,6 +73,12 @@ class ViewController: UIViewController {
             let segueDestination = segue.destination as? ListTasksViewController
             segueDestination?.viewModel.fillCurrentDayTasks(tasks: DataManager.sharedInstance.cachedTasks)
             segueDestination?.navigationItem.title = selectedDate
+        }
+        if segue.identifier == "FromCalendarToTask"{
+            let navController = segue.destination as? UINavigationController
+            let destination = navController?.topViewController as? TaskViewController
+            destination?.nav = NavContext.newFromCalendar
+            destination?.viewModel.task = nil
         }
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TaskInstantaneViewController: UITableViewController {
+class TaskInstantaneViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet weak var textFieldTaskInstantane: UITextField!
 
@@ -19,6 +19,7 @@ class TaskInstantaneViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +50,16 @@ class TaskInstantaneViewController: UITableViewController {
             }
         }
     }
+    
+    @IBAction func textfieldEditing(_ textField: UITextField) {
+        self.navigationItem.rightBarButtonItem?.isEnabled = !(textField.text!.isEmpty)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return true
+    }
+    
+    
 }
 
 extension TaskInstantaneViewController : AddImageViewControllerDelegate

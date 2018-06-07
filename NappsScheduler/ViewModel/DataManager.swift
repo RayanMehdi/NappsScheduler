@@ -132,6 +132,15 @@ class DataManager{
             "isChecked" : task.isChecked,
             "needANotif" : task.needANotif,
             "taskName" : task.taskName ], merge: true)
+        db.collection("Planning").document((cachedPlanning?.id)!).updateData([
+            "modifDate": Timestamp()
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
     }
     
     func sendMessage(message: Message){

@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="NappsScheduler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                                 <rect key="frame" x="30" y="517" width="315" height="30"/>
                                 <color key="textColor" red="0.39215686274509803" green="0.58431372549019611" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWQ-6q-8li">
                                 <rect key="frame" x="116" y="59" width="143" height="79"/>
@@ -42,7 +42,7 @@
                                 <rect key="frame" x="30" y="442" width="315" height="30"/>
                                 <color key="textColor" red="0.39215686274509803" green="0.58431372549019611" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Js0-qY-KRg">
                                 <rect key="frame" x="141" y="590" width="92" height="30"/>
@@ -50,7 +50,7 @@
                                     <color key="titleColor" red="0.39215686274509803" green="0.58431372549019611" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7tS-Ji-Vkq" kind="presentation" id="xY0-ru-7yf"/>
+                                    <action selector="Login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uBN-sD-LzH"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="KsJ-nN-Oke">
@@ -78,6 +78,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="Js0-qY-KRg" id="qJh-LK-PiT"/>
+                        <outlet property="passwordTextField" destination="bxG-IE-1gQ" id="agJ-W2-NuB"/>
+                        <outlet property="usernameTextField" destination="Wad-nM-RO8" id="yE2-aK-ZgG"/>
+                        <segue destination="7tS-Ji-Vkq" kind="show" identifier="FromLoginToCalendar" id="qiI-EF-WVb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -103,7 +109,7 @@
                     <connections>
                         <segue destination="tCe-NU-Fxl" kind="show" identifier="showListTasks" id="zxJ-rI-rhg"/>
                         <segue destination="Iuh-lF-3or" kind="show" identifier="FromCalendarToInstantMessage" id="Wfn-YM-63w"/>
-                        <segue destination="OK8-D4-yb0" kind="show" identifier="FromCalendarToTask" id="Pnz-sU-93o"/>
+                        <segue destination="OK8-D4-yb0" kind="show" identifier="FromCalendarToTask" id="MAz-QJ-lFg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYz-PE-rcb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -175,10 +181,13 @@
                     <navigationItem key="navigationItem" id="Udg-ev-iXK">
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="FT4-U0-unb">
                             <connections>
-                                <segue destination="T1F-r0-IvN" kind="show" identifier="FromListToTask" id="Osr-GV-KQn"/>
+                                <segue destination="T1F-r0-IvN" kind="show" identifier="newTask" id="Osr-GV-KQn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="T1F-r0-IvN" kind="show" identifier="FromListToTask" id="I20-jt-Ws8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LfD-GK-psQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -207,6 +216,9 @@
                                                     <color key="textColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="textfieldEditing:" destination="T1F-r0-IvN" eventType="editingChanged" id="hEd-Gx-Q2Q"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -385,9 +397,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Ajout d'une tâche" id="iuc-7M-L9L">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="i1F-El-75c">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="e1m-2a-yI9">
                             <connections>
-                                <action selector="cancel:" destination="T1F-r0-IvN" id="Ieo-4U-Irw"/>
+                                <action selector="cancelAction" destination="T1F-r0-IvN" id="qkN-y5-wyo"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="yZP-7Q-Arw">
@@ -406,7 +418,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kjz-5u-POP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="904"/>
+            <point key="canvasLocation" x="1028" y="918"/>
         </scene>
         <!--Add Image View Controller-->
         <scene sceneID="7l9-rW-BuC">
@@ -503,6 +515,9 @@
                                                     <color key="textColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="textfieldEditing:" destination="9at-D0-wXN" eventType="editingChanged" id="Qmq-Hu-40X"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -602,7 +617,7 @@
         <image name="Image" width="800" height="748"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gHT-yf-drE"/>
-        <segue reference="Osr-GV-KQn"/>
+        <segue reference="KpV-G0-Tyd"/>
+        <segue reference="wcB-cL-Ikm"/>
     </inferredMetricsTieBreakers>
 </document>
