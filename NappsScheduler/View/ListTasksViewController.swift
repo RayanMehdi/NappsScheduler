@@ -18,9 +18,6 @@ class ListTasksViewController: UITableViewController {
     var dateTasks: String!
     var viewModel = ListTasksViewModel.sharedInstance
     
-
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
@@ -31,7 +28,7 @@ class ListTasksViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
 
     // MARK: - Table view data source
@@ -55,6 +52,27 @@ class ListTasksViewController: UITableViewController {
         
         return cell
     }
+    
+    @IBAction func addTask() {
+        
+        let alertController = UIAlertController(title: "Ajout tâche", message: "Voulez-vous ajouter une tâche instantanée ?", preferredStyle: .actionSheet)
+        
+        let normalTaskAction = UIAlertAction(title: "Non", style: .default, handler: { (action) in
+            self.present(TaskViewController(), animated: true, completion: nil)
+        })
+        let taskInstantaneAction = UIAlertAction(title: "Oui", style: .default, handler: { (action) in
+            self.present(TaskInstantaneViewController(), animated: true, completion: nil)
+        })
+        let cancel = UIAlertAction(title: "Annuler", style: .default, handler: { (action) in
+            self.dismiss(animated: true, completion: nil)
+        })
+        
+        alertController.addAction(normalTaskAction)
+        alertController.addAction(taskInstantaneAction)
+        alertController.addAction(cancel)
+        present(alertController, animated: true, completion: nil)
+    }
+    
     
 
 

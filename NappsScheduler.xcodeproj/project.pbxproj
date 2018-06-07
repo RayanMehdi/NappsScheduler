@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1442C7705FD98BDC224E3BA4 /* Pods_NappsScheduler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C4CEEF88A00F26A99857149 /* Pods_NappsScheduler.framework */; };
 		73163D8B20C522C800F0DAD4 /* Planning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73163D8A20C522C800F0DAD4 /* Planning.swift */; };
+		739C582B20C91AF000D53F80 /* TaskInstantaneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C582A20C91AF000D53F80 /* TaskInstantaneViewController.swift */; };
 		73A19E9520C672A300264A19 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A19E9420C672A300264A19 /* DataManager.swift */; };
 		73A19E9720C68B1A00264A19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73A19E9620C68B1A00264A19 /* GoogleService-Info.plist */; };
 		73B6059320C03DF900D921F1 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6059220C03DF800D921F1 /* TaskViewController.swift */; };
@@ -59,6 +60,7 @@
 		6C4CEEF88A00F26A99857149 /* Pods_NappsScheduler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NappsScheduler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73163D8A20C522C800F0DAD4 /* Planning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planning.swift; sourceTree = "<group>"; };
 		73520DA5FB3341AFAC5FB51E /* Pods-NappsSchedulerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NappsSchedulerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NappsSchedulerUITests/Pods-NappsSchedulerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		739C582A20C91AF000D53F80 /* TaskInstantaneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInstantaneViewController.swift; sourceTree = "<group>"; };
 		73A19E9420C672A300264A19 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		73A19E9620C68B1A00264A19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		73B6059220C03DF800D921F1 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				B891722320C5374700E5ABBB /* ListTasksViewController.swift */,
 				B891722520C56A2000E5ABBB /* AddImageViewController.swift */,
 				B891722720C56A4200E5ABBB /* AddRecurenceViewController.swift */,
+				739C582A20C91AF000D53F80 /* TaskInstantaneViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				73E6C1E820BEB0B100EE7BF5 /* ViewController.swift in Sources */,
 				73E6C21D20BEDCF400EE7BF5 /* Task.swift in Sources */,
 				B81E184D20C0352E00EA9C4C /* WeekdaysView.swift in Sources */,
+				739C582B20C91AF000D53F80 /* TaskInstantaneViewController.swift in Sources */,
 				B81E184B20C0350200EA9C4C /* MonthView.swift in Sources */,
 				B829D55D20C7DB1500F902CE /* ListTaskViewModel.swift in Sources */,
 				B891722820C56A4200E5ABBB /* AddRecurenceViewController.swift in Sources */,

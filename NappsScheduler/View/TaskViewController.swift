@@ -89,7 +89,6 @@ class TaskViewController: UITableViewController {
     
     func iconChange(newIcon: IconAsset){
         self.icon = newIcon
-        //self.imageTableViewCell.image = self.icon.image
         self.imageTableViewCell.image = UIImage(named: self.icon.rawValue)
     }
     
