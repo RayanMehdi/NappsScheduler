@@ -29,6 +29,15 @@ class TaskViewController: UITableViewController {
         imageTableViewCell.image = UIImage(named: icon.rawValue)
         recurrenceLabel.text = Frequency.Once.rawValue
         
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        dateFormatter.locale = Locale(identifier: "FR-fr")
+        
+        let strDate = dateFormatter.string(from: dateDatePicker.date)
+        dateLabel.text = strDate
+        
     }
 
     override func didReceiveMemoryWarning() {

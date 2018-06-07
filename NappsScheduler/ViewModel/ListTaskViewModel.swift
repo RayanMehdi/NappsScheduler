@@ -24,4 +24,8 @@ class ListTasksViewModel {
     func fillCurrentDayTasks(tasks: [Task]){
         self.selectedDayTask = tasks
     }
+    
+    func sortDayTasks(){
+        self.selectedDayTask = self.selectedDayTask.sorted(by: { ($0.date?.compare($1.date!))!.rawValue == -1 })
+    }
 }
