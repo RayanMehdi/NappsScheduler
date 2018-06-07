@@ -14,6 +14,7 @@ target 'NappsScheduler' do
   pod 'Firebase/Storage'
   pod 'Firebase/Firestore'
   pod 'Firebase/Messaging'
+  pod 'IQKeyboardManagerSwift'
   # Pods for NappsScheduler
 
   target 'NappsSchedulerTests' do

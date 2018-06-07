@@ -73,6 +73,7 @@ PODS:
     - gRPC-Core (= 1.12.0)
     - gRPC-RxLibrary (= 1.12.0)
   - GTMSessionFetcher/Core (1.1.15)
+  - IQKeyboardManagerSwift (6.0.3)
   - leveldb-library (1.20)
   - Moya (10.0.2):
     - Moya/Core (= 10.0.2)
@@ -103,6 +104,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Messaging
   - Firebase/Storage
+  - IQKeyboardManagerSwift
   - Moya (~> 10.0.0)
   - Moya-ObjectMapper (~> 2.5)
   - RxCocoa (~> 4.1)
@@ -126,6 +128,7 @@ SPEC REPOS:
     - gRPC-ProtoRPC
     - gRPC-RxLibrary
     - GTMSessionFetcher
+    - IQKeyboardManagerSwift
     - leveldb-library
     - Moya
     - Moya-ObjectMapper
@@ -153,6 +156,7 @@ SPEC CHECKSUMS:
   gRPC-ProtoRPC: a1bd56fb1991a8dae4581250d7259eddabb66779
   gRPC-RxLibrary: 1ed5314e8b38cd6e55c9bfa048387136ae925ce9
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
+  IQKeyboardManagerSwift: 04e8679f85e496bb2c474eeb9284052f1b3c391c
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   Moya: 2b0531a9fef318e0bc484030c3db1e6f279ccb66
   Moya-ObjectMapper: 167adf69db0298bf3a19ea05cb9a16ee117c8ef5
@@ -164,6 +168,6 @@ SPEC CHECKSUMS:
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   Swinject: a1364b0f66c2736bb03c1c7cab54809e16df25da
 
-PODFILE CHECKSUM: 11579fc28e73acf920914d3801f66fb3b655c654
+PODFILE CHECKSUM: 197b229c5b5e6bdc9f399ee2a65d2e1c8730945e
 
 COCOAPODS: 1.5.3
