@@ -19,15 +19,28 @@ class TaskViewController: UITableViewController {
     
     var icon : IconAsset = IconAsset.work
     var recurrence : Frequency = Frequency.Once
-    var task : Task!
     var needNotif : Bool = false
+    var delegate : TaskViewModelDelegate?
+    let viewModel =  TaskViewModel.sharedInstance
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let taskToEdit = viewModel.task{
+            self.navigationItem.title = "ÉDITER UNE TÂCHE"
+            self.nameLabel.text = taskToEdit.taskName
+            self.imageTableViewCell.image = UIImage(named: taskToEdit.imgURL!)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = DateFormatter.Style.short
+            dateFormatter.timeStyle = DateFormatter.Style.short
+            dateFormatter.locale = Locale(identifier: "FR-fr")
+            dateLabel.text = dateFormatter.string(from: (taskToEdit.date?.dateValue())!)
+            recurrenceLabel.text = taskToEdit.frequency?.rawValue
+            
+        }else{
         imageTableViewCell.image = UIImage(named: icon.rawValue)
         recurrenceLabel.text = Frequency.Once.rawValue
+        }
         
     }
 
@@ -41,11 +54,20 @@ class TaskViewController: UITableViewController {
     }
     
     @IBAction func done(_ sender: Any) {
+        if self.viewModel.task != nil{
+            self.viewModel.task?.taskName = nameLabel.text
+            self.viewModel.task?.imgURL = icon.rawValue
+            self.viewModel.task?.date = Timestamp(date: dateDatePicker.date)
+            self.viewModel.task?.needANotif = needNotif
+            self.viewModel.task?.frequency = recurrence
+            delegate?.taskViewModel(TaskViewModel.sharedInstance, didFinishEditingItem: self.viewModel.task!)
+        }else{
+           // delegate?.itemDetailViewController(self, didFinishAddingItem: CheckListItem.init(text: titleTextField.text!))
+
         let task = Task(date: Timestamp(date: dateDatePicker.date), frequency: recurrence, imgURL: icon.rawValue, isChecked: false, needANotif: needNotif, taskName: nameLabel.text)
         DataManager.sharedInstance.addTask(task: task)
-        
+        }
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     @IBAction func datePickerChanged(_ sender: Any) {
@@ -99,5 +121,8 @@ class TaskViewController: UITableViewController {
     }
 
 }
+
+
+
 
 

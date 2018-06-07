@@ -75,3 +75,11 @@ class Task{
     }
     
 }
+
+extension Task: Equatable
+{
+    static func ==(lhs: Task, rhs: Task) -> Bool {
+        return (lhs.taskId == rhs.taskId)
+    }
+    
+}

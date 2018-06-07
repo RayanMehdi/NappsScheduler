@@ -110,7 +110,7 @@ class DataManager{
     }
     
     func modifTask(task : Task){
-        db.collection("Task").document(task.taskName!).setData([
+        db.collection("Task").document(task.taskId!).setData([
             "date": task.date,
             "frequency": task.frequency?.rawValue,
             "imgURL": task.imgURL,

@@ -18,6 +18,7 @@ class ListTasksViewController: UITableViewController {
     var dateTasks: String!
     var viewModel = ListTasksViewModel.sharedInstance
     
+    
 
     
     
@@ -56,9 +57,42 @@ class ListTasksViewController: UITableViewController {
         return cell
     }
     
-
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "FromListToTask", sender: tableView.cellForRow(at: indexPath))
+    }
     
+ 
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FromListToTask"{
+            let destinationNavigationController = segue.destination as! TaskViewController
+            destinationNavigationController.delegate = self
+            let tv = sender as! UITableViewCell
+            let indexPath = tableView.indexPath(for: tv)
+            destinationNavigationController.viewModel.task = viewModel.selectedDayTask[(indexPath?.row)!]
+            
+        }
+    }
 
+}
 
+extension ListTasksViewController : TaskViewModelDelegate
+{
+    func taskViewModel(_ viewModel: TaskViewModel, didFinishEditingItem item: Task) {
+        let index = self.viewModel.selectedDayTask.index(where:{ $0 == item })
+        self.viewModel.selectedDayTask[index!].taskName = item.taskName
+        let calendar = Calendar.current
+        let dateFromTimestamp = self.viewModel.selectedDayTask[index!].date?.dateValue()
+        let hour = calendar.component(.hour, from: dateFromTimestamp!)
+        let minutes = calendar.component(.minute, from: dateFromTimestamp!)
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "taskTableViewCell", for: IndexPath(row: index!, section: 0)) as! TaskTableViewCell
+        cell.taskNameLabel.text = self.viewModel.selectedDayTask[index!].taskName
+        cell.taskTimeLabel.text = (minutes < 10) ? "\(hour):0\(minutes)" : "\(hour):\(minutes)"
+        DataManager.sharedInstance.modifTask(task: item)
+
+        tableView.reloadData()
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
 }

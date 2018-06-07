@@ -173,7 +173,7 @@
                     <navigationItem key="navigationItem" id="Udg-ev-iXK">
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="FT4-U0-unb">
                             <connections>
-                                <segue destination="T1F-r0-IvN" kind="show" id="YPN-dg-rI4"/>
+                                <segue destination="T1F-r0-IvN" kind="show" identifier="FromListToTask" id="YPN-dg-rI4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

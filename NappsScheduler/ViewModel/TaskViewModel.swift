@@ -13,5 +13,13 @@ class TaskViewModel {
     //MARK: - properties
     var task: Task?
     
+    static let sharedInstance = TaskViewModel()
     
+    private init() {}
+}
+
+//MARK: - TaskViewModelDelegate
+
+protocol TaskViewModelDelegate: class {
+    func taskViewModel(_ viewModel: TaskViewModel, didFinishEditingItem item: Task)
 }
